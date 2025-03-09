@@ -68,7 +68,10 @@ with placeholder.form("login"):
     email = st.text_input("Email")
     password = st.text_input("Password", type="password")
     submit = st.form_submit_button("Login")
-    
+
+# Session State also supports the attribute based syntax
+if 'is_authenticated' not in st.session_state:
+    st.session_state.is_authenticated = False
     
 if st.session_state.is_authenticated == True or (submit and email == actual_email and password == actual_password):
     # If the form is submitted and the email and password are correct,
